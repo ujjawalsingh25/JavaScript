@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button"> Click Button </button>
+</body>
+<script>
+    // requirement  -->> let the requirement be that, ON CLICKING BUTTON we get the referrence of button and a message of clicked.
+
+//     console.log("-----------  Without Bind (getting Error / Undefined) ------------------------");    
+//     class user {
+//         constructor(){
+//             this.username = "Ujjawal",
+//             this.dept = "ECE" 
+//             document.querySelector('button').addEventListener('click', this.notifyClick)
+//         }
+                
+//         notifyClick(){
+//             console.log("Button Click");                  // Button click is working and printing 
+//             console.log(this);                           // BUT the value of the class is not printing.
+//             console.log(this.name, this.dept);    // However this has its (reference/access) of notifyClick but the binded with the refernece of constructor
+// //                                                         As printing Button Click but not the value
+// //                Situation is similar to Call however here this have refernce of notifyClick but not access of user hence not getting value.   
+// //                                          so, all we need a 'BIND - KEYWORD' that will bind both referrences and taken to object.   
+//         }
+//     }
+//     const myData = new user();
+//     console.log("----------------------------------------");
+
+    // console.log("***********  Using BIND KEYWORD *****************");
+
+    class user {
+        constructor(){
+            this.username = "Ujjawal",
+            this.dept = "ECE" 
+            document.querySelector('button').addEventListener('click', this.notifyClick.bind(this))
+        }                                                 // Now, we have binded on this (user and notifyClick) together and through object can access both class values.
+                 
+        notifyClick(){
+            console.log("Button Click");                 
+            console.log(this);
+            console.log(this.name, this.dept);    
+        }
+    }
+    const myData = new user();
+//     console.log("----------------------------------------");
+    
+</script>
+</html>

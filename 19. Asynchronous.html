@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    <h1>Asynchronous or Non-Block </h1>
+    <button id="stop" style="
+    border: 2px solid black;
+    width: 15%;
+    height: 50px;
+    font-size: 150%;
+    margin-left: 25%;
+    border-radius: 15px;
+"> Stop </button>
+
+</body>
+
+<script>
+
+    // setTimeout(function(){
+    //     console.log("Ujjawal")
+    // }, 2000);
+  // OR
+    const sayName = function(){
+        console.log("Ujjawal");
+        const h2Element = document.createElement('h2');
+        h2Element.innerHTML = "Ujjawal Singh";
+        document.body.appendChild(h2Element);
+    }    
+
+    // *********** setTimeout,   setInterval  *****************************
+    // setTimeout(sayName, 3000);
+    // setInterval(sayName, 2000);
+
+    // ****** clearTimeout,   clearInterval  ********************************
+    // const stopPrint = setTimeout(sayName, 3000);
+    // clearTimeout(stopPrint);
+    // console.log("---------------------------------------------------");  
+
+    const startPrint = setInterval(sayName, 2000);
+    document.querySelector('#stop').addEventListener('click', function(event){
+        clearInterval(startPrint);    
+        console.log("Stopped");
+    });
+
+
+
+</script>
+
+</html>

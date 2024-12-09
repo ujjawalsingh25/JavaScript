@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    <h1 style="display: flex; font-size: 50px; justify-content: center;">
+         Changing Background color </h1>
+    <button id="start" style=" border: 2px solid black; width: 15%; height: 50px; 
+    font-size: 150%; margin-left: 25%; border-radius: 15px;"> Start </button>
+    <button id="stop" style=" border: 2px solid black; width: 15%; height: 50px; 
+    font-size: 150%; margin-left: 25%; border-radius: 15px;"> Stop </button>
+
+</body>
+
+<script>
+    
+    // Generating random Colors
+    const randomColor = function() {
+        const hexArr = '0123456879ABCDEF';
+        let color = '#';
+        for (let i=0; i<6; i++) {
+            color += hexArr[Math.floor(Math.random() * 16)];    <!-- // To get color we #6digitNumber so we add string # and random
+                                                                    // 6 digit from hexArr -->>
+        }
+        return color;
+    };
+    console.log(randomColor());
+
+
+    //Function to start changing color
+    let change;
+    const startColorChange = function(eventt) {
+       function changeColor(){ 
+            document.body.style.backgroundColor = randomColor();
+            const h2Element = document.createElement('h2');
+            h2Element.innerHTML = `Color  = ${randomColor()}`;
+            document.body.appendChild(h2Element);
+        }
+        if(!change) change = setInterval(changeColor, 2000);
+    };
+    document.querySelector('#start').addEventListener('click', startColorChange);
+
+    // Function to stop changing colors.    
+    const stopColorChange = function() {
+        clearInterval(change);    
+        change = null;
+    };
+    document.querySelector('#stop').addEventListener('click', stopColorChange);
+
+</script>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learnig</title>
+    <style>
+        .bg-color{
+            background-color: black;
+            color: antiquewhite;
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <h1 id="idd" class="klass">DOM Learnig with different properties
+        <span style="display: none;">Hide this text</span>
+    </h1>
+    <h2>Heading 2a content</h2>
+    <h2>Heading 2b content</h2>
+    <h3>Heading 3 content</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+    <ul>
+        <li class="listClass"> List 1 </li>
+        <li class="listClass"> List 2 </li>
+        <li class="listClass"> List 3 </li>
+    </ul>
+
+    
+</body>
+</html>
+
+
+<!-- document.getElementById('idd')
+<h1 id=​"idd" class=​"klass">​DOM Learnig with different properties​</h1>​ -->
+
+<!-- document.getElementById('idd').id
+'idd'
+document.getElementById('idd').className
+'klass' -->
+
+<!-- document.getElementById('idd').getAttribute('id');
+'idd'
+document.getElementById('idd').getAttribute('class');
+'klass' -->
+
+<!-- document.getElementById('idd').setAttribute('class', 'klasss');      //--}}  it overwrites the previous data 
+undefined
+document.getElementById('idd').getAttribute('class');               
+'klasss' -->
+
+<!-- const head1 = document.getElementById('idd');
+undefined
+head1
+<h1 id="idd" class="klasss">DOM Learnig with different properties</h1> -->
+
+<!-- head1.style.backgroundColor = 'green';
+'green'
+head1.style.padding.borderRadius = "15px";        //--}} only padding will occur (one at a time)
+'15px'
+head1.style.borderRadius = "15px";
+'15px' -->
+
+<!-- head1.innerHTML
+'DOM Learnig with different properties\n        <span style="display: none;">Hide this text</span>\n    '
+head1.innerText
+'DOM Learnig with different properties'             // --}} Shows display text only
+head1.textContent
+'DOM Learnig with different properties\n        Hide this text\n        //--}} Shows all text in the code -->
+
+
+<!-- ////   Query Selector  //// -->
+<!-- document.querySelector('h2');
+<h2>​Heading 2a content​</h2>
+document.querySelector('.klass');
+<h1 id=​"idd" class=​"klass">​…​</h1>​
+document.querySelector('#idd');
+<h1 id=​"idd" class=​"klass">​…​</h1>​ -->
+
+<!-- ////   Query Selector All  //// -->
+<!-- const listt = document.querySelectorAll('li');
+undefined
+listt
+NodeList(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: NodeList
+listt[0].style.color = 'red';
+'red' -->
+
+<!-- ////   Using ForEach  ////
+const listt = document.querySelectorAll('li');
+undefined
+listt
+NodeList(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: NodeList
+listt[0].style.color = 'red';
+'red' -->
+
+<!-- ////// Array.from(HTMLCollectionName)        //*****//  To change html collection to array
+const myLists = document.getElementsByClassName('listClass');
+undefined
+myLists
+HTMLCollection(3) [li.listClass, li.listClass, li.listClass]
+Array.from(myLists);
+(3) [li.listClass, li.listClass, li.listClass]
+
+const myConvertedArray = Array.from(myLists);
+undefined
+myConvertedArray
+(3) [li.listClass, li.listClass, li.listClass]
+
+myConvertedArray.forEach( function (index) {
+    index.style.color = 'orange';    
+} );
+undefined -->

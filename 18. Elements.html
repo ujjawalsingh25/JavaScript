@@ -1,0 +1,125 @@
+<!-- // type, timestamp, defaultPrevant
+    // target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screemY
+    // altkey, ctrlkey, shiftkey, keycode -->
+
+<!-- eventt.stopPropagation(); 
+function --} addEventListener('eventOnWhich_needToChcek', function(event){
+//program need to execute ....
+// }, true / false (false by default) );
+// eventt.preventDefault();                    // it stop the events to happen -->
+
+
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="images">
+        <li><img height="125px" id="Perfumes" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNGqjPRfz-7_H_ZIvtwwBG19nNoRQEFSA3DQ&usqp=CAU" atl="img3">
+            </li>
+
+        <li><img height="125px" id="Sunglasses" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM2vYdDcsnK9hCNEgYmPCkPVrkoOUGZCq8NA&usqp=CAU" atl="img4" >
+            <!-- onclick="alert('Sunglasses')"> -->
+            </li>
+    
+        <li><img height="125px" id="Wallet" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5jYKZWahe8vkSs5TkyBpqtMVgPtzjOoQ7Rw&usqp=CAU" atl="img5">
+            </li>
+        
+        <li><img height="125px" id="Belt" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYtGa4amwMC7IVlZdW0oJCkNfXvkZKUxoNXg&usqp=CAU" atl="img6">
+            </li>
+        
+        <li><img height="125px" id="Toys" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWXY06bdAtbtgrKGjAEOm3H2SjzVmqxkb8g&usqp=CAU" atl="img7">
+           </li>
+
+        <li><a id="google" style="color: #414141;" href="https://www.google.com/"> Link to Google</a> </li>
+    
+    </ul>
+</body>
+<script>
+
+    // document.getElementById("Sunglasses").onclick = function(){
+    //     alert("Sunglasses clicked using onclick");
+    // }
+    
+    // document.querySelector('#Sunglasses').addEventListener('click', function(eventt){
+    //     alert("Sunglasses clicked using addEventListener");
+    // });
+    // console.log("-----------------------------------------------------------------------");
+
+
+    
+    // document.getElementById('images').addEventListener('click', function(eventt){
+    //     alert('Clicked upper layer');
+    // }, false);
+    // document.getElementById('Sunglasses').addEventListener('click', function(eventt){
+    //     alert('Clicked inner layer');
+    // }, false);
+    
+    // console.log("---------------------------------------------");
+    
+    
+    // console.log("**************************** addEventListener ***************************************************");
+    // function -->> addEventListener('eventOnWhich_needToChcek', function(event){
+        //program need to execute ....
+    // }, true / false (false by default) );        // ******// Ture or false is for bubbling (false by default) 
+                                                // it decides what to execute first -> from bottom to top OR from top to bottom.
+                        //  In example when "FALSE" it first execute inside layer or bottom (i.e sunglasses or <li (under <ul>) > )    
+                        // When it is "TRUE" it first execute the upper layer or top (i.e ) 
+    
+    // console.log("***************************************************************************************************");
+
+
+    
+    // document.getElementById('images').addEventListener('click', function(eventt){
+    //     alert('Clicked upper layer');
+    // }, true);
+    // document.getElementById('Sunglasses').addEventListener('click', function(eventt){
+    //     alert('Clicked inner layer');
+    // }, true);
+    // console.log("---------------------------------------------");
+
+    
+    // document.getElementById('images').addEventListener('click', function(eventt){
+    //     alert('Clicked upper layer');
+    // }, false);
+    // document.getElementById('Sunglasses').addEventListener('click', function(eventt){
+    //     alert('Stop moving to Top Layer');
+    //     eventt.stopPropagation();                   
+    // } );
+     // console.log("**************************** stopPropagation ***************************************************");
+    // it stops bubbling or from moving to upper layer in the upper code it will not allow to print the (Clicked upper layer');
+    // as stopPropagation won't allow to move to top layer.
+    // console.log("***************************************************************************************************");
+
+    document.getElementById('google').addEventListener('click', function(eventt){
+        alert('Stop using preventDefault');
+        eventt.preventDefault();                    // it stop the events to happen
+    } );
+    // console.log("---------------------------------------------");
+
+    // document.querySelector('#images').addEventListener('click', function(eventt){
+    //     console.log(eventt.target.parentNode);
+    //     let removeIt = eventt.target.parentNode;
+    //     removeIt.remove();
+    //     // removeIt.parentNode.removeChild(removeIt);           // it first go to parentNode then to its child. in the code
+    //                                                       // if sunglasses clicked it move to its parent <ul> then to its child
+    //                      // child having id("sunglasses") and remove it. If <ul> selects then move to body and then the child <ul> and     
+                        // whole list remove. So, we should remove them by tag name
+    // });
+    document.querySelector('#images').addEventListener('click', function(eventt){
+        console.log(eventt.target.tagName);
+        if(eventt.target.tagName === 'IMG'){
+            console.log(eventt.target.id);
+            let removeIt = eventt.target.parentNode;
+            removeIt.remove();
+        }
+         
+    }); 
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!-- //Tarvesing in parent-child -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Children Relation</title>
+</head>
+<body style = "background-color: #212121; color: white;">
+    <div class="parentClass">
+        <div class="day"> Monday</div>
+        <div class="day"> Tuesday</div>
+        <div class="day"> Wednesday</div>
+        <div class="day"> Thrusday</div>
+        <div class="day"> Friday</div>
+    </div>    
+</body>
+<script>
+    const myParent = document.querySelector('.parentClass');
+    console.log(myParent);
+    console.log(myParent.children);
+    console.log(myParent.children[1]);
+    console.log(myParent.children[1].innerHTML);
+    console.log(myParent.childNodes);       // There are 5 elements yet 11 nodes as each element as one node and the spaces after the element in another node. Each data is evaluated as node rather extra line breaks whole breaks b/w two lines counted as one. 
+    console.log("---------------------------------------");
+
+    for (let i = 0; i < myParent.children.length; i++) {
+        console.log(myParent.children[i].innerHTML);
+    }
+    myParent.children[1].style.color = "orange";
+    myParent.firstElementChild.style.color = "green";
+    myParent.lastElementChild.style.color = "red";
+    console.log("---------------------------------------");
+
+    const days = document.querySelector('.day');
+    console.log(days.parentElement);
+    console.log(days.innerHTML);
+    console.log(days.nextElementSibling.innerHTML);
+
+</script>
+</html>
+
+
+<div class="parentClass">
+    <div class="day"> Monday</div>
+    <div class="day"> Tuesday</div>
+    <div class="day"> Wednesday</div>
+    <div class="day"> Thrusday</div>
+    <div class="day"> Friday</div>
+</div>
+
+
+<!-- 21. <div class="parentClass"> ...</div>
+22. HTMLCollection(5)
+ <div class=​"day" style=​"color:​ orange;​">​ Tuesday​</div>
+​
+23.  Tuesday
+24.  <div class="day"> Tuesday</div>
+25.  NodeList(11) [text, div.day, text, div.day, text, div.day, text, div.day, text, div.day, text] -->
+ <!-- --------------------------------------- -->
+
+  <!-- 28. Monday
+  Tuesday
+  Wednesday
+  Thrusday
+  Friday -->
+<!-- ---------------------------------------
+ 37. <div class=​"parentClass">​…​</div>​
+38.   Monday
+39.  Tuesday -->

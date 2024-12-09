@@ -1,0 +1,37 @@
+
+<!-- myDiv.setAttribute("title", "myGeneratedTitle");
+const addText = document.createTextNode("\n Created ");
+myDiv.appendChild(addText); -->
+<!-- ---------------------------------------------------------------------- -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Elements</title>
+</head>
+<body style = "background-color: #212121; color: white;">
+    
+</body>
+<script>
+    const myDiv = document.createElement('div');
+    console.log(myDiv);
+    myDiv.className = "divClass";
+    myDiv.id = "divId";
+
+    myDiv.setAttribute("title", "myGeneratedTitle");
+    myDiv.style.backgroundColor = "green";
+    myDiv.style.color = "orange";
+    myDiv.style.padding = "12px";
+
+    myDiv.innerText = "Ujjawal Singh";
+    const addText = document.createTextNode("\n Created through another method");
+    myDiv.appendChild(addText);
+
+    // To attach the created element from memory to web
+    document.body.appendChild(myDiv);
+
+</script>
+</html>

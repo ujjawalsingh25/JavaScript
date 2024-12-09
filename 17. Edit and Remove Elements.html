@@ -1,0 +1,62 @@
+<!-- //Tarvesing in parent-child -->
+
+<!-- .appendChild(Object)
+forthLang.replaceWith(newLi);
+const forthLang = document.querySelector("li:nth-child(4)");            // li:nth-child(4)
+
+const lastLang = document.querySelector('li:last-child');
+lastLang.remove(); -->
+---------------------------------------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Remove Elements</title>
+</head>
+<body style = "background-color: #212121; color: white;">
+    <ul class = "lang">
+        <li> C++ </li>
+        <li> Java</li>
+    </ul>
+</body>
+<script>
+    function addLanguage (langName) {
+        const myList = document.createElement('li');
+        myList.innerText = `${langName}`;
+        document.querySelector('.lang').appendChild(myList);
+    }
+    addLanguage("Python");
+    addLanguage("Ruby");
+
+    function AddLanguageOptimed (langName) {
+        const myList = document.createElement('li');
+        myList.appendChild(document.createTextNode(langName));
+        document.querySelector('.lang').appendChild(myList);
+    }
+    AddLanguageOptimed("JavaScript");
+    AddLanguageOptimed("PHP");
+
+
+    ////////////    EDIT       ////////
+    const forthLang = document.querySelector("li:nth-child(4)");
+    console.log(forthLang);
+    // forthLang.innerHTML = "Mojo";         // One way to edit or change
+    
+    const newLi = document.createElement('li');
+    newLi.textContent = "Typescript";
+    forthLang.replaceWith(newLi);
+    
+    const firstLang = document.querySelector('li:first-child');
+    firstLang.outerHTML = '<li> C/C++ </li>';
+
+
+
+////////////    Remove       ////////
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove();
+
+</script>
+</html>
